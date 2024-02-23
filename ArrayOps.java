@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArrayOps {
     public static void main(String[] args) {
 		int result = findMissingInt(new int[] {0});
@@ -24,16 +26,21 @@ public class ArrayOps {
 		return sortedArr[sortedArr.length - 2];
     }
 
-    public static boolean containsTheSameElements(int [] array1,int [] array2) {
-        int[] sortArray1 = sortArr(array1);
-		int[] sortArray2 = sortArr(array2); ///need to continue from here... maybe create a new array where you delete duplicates
-		
-		for (int i = 0; i <= sortArray1.length; i++) {
-			
+    public static boolean containsTheSameElements(int[] array1, int[] array2) {
+		if (array1.length != array2.length) {
+			return false;
 		}
-		
-        return true;
-    }
+
+		int[] array1Sort = sortArr(array1);
+		int[] array2Sort = sortArr(array2);
+
+		for (int i = 0; i < array1Sort.length; i++) {
+			if (array1Sort[i] != array2Sort[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 
     public static boolean isSorted(int [] array) {
 		int[] sortedArr = sortArr(array);
