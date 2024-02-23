@@ -1,6 +1,3 @@
-import java.sql.Array;
-import java.util.ArrayList;
-
 public class StringOps {
     ////////////////////////////////////////////////////////////
     //////                                               ///////
@@ -25,61 +22,84 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-		String s = args[0];
-		String voweResult = capVowelsLowRest(s);
-		System.out.print(voweResult);   
+		// String s = args[0];
+		// String s = "vowels are fun";
+	    System.out.print(allIndexOf("Hello world",'l'));
+		//System.out.print(voweResult);   
     }
 
     public static String capVowelsLowRest (String string) {
 		String ans = "";
 		for (int i = 0; i < string.length(); i++) {
 			char ch = string.charAt(i);
-			if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
-				ch = (char) (string.charAt(i) - 32); // returns uppers case vowels
-				ans+= ch;
+			if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'){
+				if (ch >= 'A' && ch <= 'Z') { // if uppercase
+					ans += ch;
+				} else { // if lowercase
+					ch = (char) (ch - 32); // returns uppers case vowels
+					ans += ch;
+				}
 			} else {
-				if ((ch >= 65) && (ch <= 90)){
-					ch = (char)(string.charAt(i) + 32); // returns lower case
+				if ((ch >= 'A') && (ch <= 'Z')){
+					ch = (char) (ch + 32); // returns lower case
 					ans += ch;
 				} else {
-				ans += ch;
+					ans += ch;
 				}
 			}
 		}	
-		return ans; // understand why it doesnt bring back spaces
+		return ans;
 	}
 
 
-    public static String camelCase (String string) { // figure this code out
-        String strcamelCase = args[0];
-		String improved = "" + (char)(str.charAt(0) - 32);
-		int j = 1;
-		for (int i = 0; i < string.length() && string.charAt(i) != ' '; i++){ // indicates first words 
-			char chFirstWord = string.strcamelCase(i);
-			firstWord = (char)(string.charAt(i) + 32);	// returns all the letters in first word lower case	- check to add print
-			firstWord++;			
-		}
-		while (j >= indexOf(str.charAt(i)) && j < str.length()) { // brings back uppercase letter for first letter without spaces
-			char ch = str.charAt(j);
-			if (ch == ' '){
-				improved = chFirstWord + (char) (str.charAt(j + 1) - 32); 
-				j++;
+    public static String camelCase (String string) {
+		boolean uppercaseTrigger = false;
+		String newCamelString = "";
+
+		for (int i = 0; i < string.length(); i++) {
+			char ch = string.charAt(i);
+
+			if (ch == ' ') {
+				if (newCamelString.length() > 0) { // if new word started
+					uppercaseTrigger = true;
+				}
 			} else {
-				improved++;
+				if (uppercaseTrigger == true) {
+					uppercaseTrigger = false;
+					
+					if (ch >= 'a' && ch <= 'z') { // if lowercase
+						newCamelString += (char) (ch - 32); // convert to uppercase
+					} else {
+						newCamelString += ch;
+					}
+				} else {
+					if (ch >= 'A' && ch <= 'Z') { // if uppercase
+						newCamelString += (char) (ch + 32); // convert to lowercase
+					} else {
+						newCamelString += ch;
+					}
+				}
 			}
-		    return firstWord + improved;
 		}
+		return newCamelString;
 	}
 
 
     public static int[] allIndexOf (String string, char chr) {
-		ArrayList indexes = new ArrayList<>();
+		int count = 0;
 		for (int i = 0; i < string.length(); i++) {
-			if (chr == string.charAt(i)){
-				indexes.add(i);
+			if (string.charAt(i) == chr) {
+				count++;
 			}
 		}
-        return indexes;
+		
+		int[] indexes = new int[count];
+		int index = 0;
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) == chr) {
+				indexes[index++] = i;
+			}
+		}
+		return indexes;
     }
 }
-
