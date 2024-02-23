@@ -1,16 +1,17 @@
 public class ArrayOps {
     public static void main(String[] args) {
-   
+		int result = findMissingInt(new int[] {0});
+		System.out.println(result);
     }
     
     public static int findMissingInt (int [] array) {
 		int[] sortedArr = sortArr(array);
 		for(int i = 0 ; i < array.length ; i++){
-			if(sortedArr[i] != i){
+			if(sortedArr[i] != i) {
 				return i;
 			}
 		}
-        return -1;
+        return 1;
     }
 
 
