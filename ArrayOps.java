@@ -5,13 +5,17 @@ public class ArrayOps {
     }
     
     public static int findMissingInt (int [] array) {
+		if (array.length == 1) {
+			return 1;
+		}
+
 		int[] sortedArr = sortArr(array);
 		for(int i = 0 ; i < array.length ; i++){
 			if(sortedArr[i] != i) {
 				return i;
 			}
 		}
-        return 1;
+		return -1;
     }
 
 
@@ -24,7 +28,7 @@ public class ArrayOps {
         int[] sortArray1 = sortArr(array1);
 		int[] sortArray2 = sortArr(array2); ///need to continue from here... maybe create a new array where you delete duplicates
 		
-		for (int i = 0; i <= length.sortArray1; i++) {
+		for (int i = 0; i <= sortArray1.length; i++) {
 			
 		}
 		
