@@ -50,7 +50,7 @@ public class ArrayOps {
         return true;
     }
 				
-	public static int[] sortArr(int[] inputArr){
+	public static int[] sortArr(int[] inputArr) {
 		// temp is for swapping elements when needed.
 		int temp;
 		for(int i = 0; i < inputArr.length; i++){
