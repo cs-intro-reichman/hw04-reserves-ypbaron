@@ -1,6 +1,6 @@
 public class ArrayOps {
     public static void main(String[] args) {
-		int result = containsSameElements(new int[] {1, 2, 1, 1, 2}, new int[] {2, 1});
+		boolean result = containsTheSameElements(new int[] {1, 2, 1, 1, 2}, new int[] {2, 1});
 		System.out.println(result);
     }
     
