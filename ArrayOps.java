@@ -1,10 +1,7 @@
 public class ArrayOps {
     public static void main(String[] args) {
-		boolean result = containsTheSameElements(new int[] {1, 2, 1, 1, 2}, new int[] {2, 1});
+		boolean result = containsTheSameElements(new int[] {2,2,3,7,8,3,2}, new int[] {8,2,7,7,3});
 		System.out.println(result);
-
-		int r = secondMaxValue(new int[] {-202, 48, 13, 7, 8});
-		System.out.println(r);
     }
     
     public static int findMissingInt (int [] array) {
@@ -28,19 +25,39 @@ public class ArrayOps {
     }
 
     public static boolean containsTheSameElements(int[] array1, int[] array2) {
-		if (array1.length != array2.length) {
-			return false;
+		for (int i = 0; i < array1.length; i++) {
+			boolean containElement = false;
+			for (int j = 0; j < array2.length; j++) {
+				if (array1[i] == array2[j]) {
+					containElement = true;
+				}
+			}
+			if (containElement == false) {
+				return false;
+			}
 		}
 
-		int[] array1Sort = sortArr(array1);
-		int[] array2Sort = sortArr(array2);
-
-		for (int i = 0; i < array1Sort.length; i++) {
-			if (array1Sort[i] != array2Sort[i]) {
+		for (int i = 0; i < array2.length; i++) {
+			boolean containElement = false;
+			for (int j = 0; j < array1.length; j++) {
+				if (array2[i] == array1[j]) {
+					containElement = true;
+				}
+			}
+			if (containElement == false) {
 				return false;
 			}
 		}
 		return true;
+	}
+
+	public static boolean isIncluded(int [] array, int element) {
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] == element) {
+				return true;
+			}
+		}
+		return false;
 	}
 
     public static boolean isSorted(int [] array) {
