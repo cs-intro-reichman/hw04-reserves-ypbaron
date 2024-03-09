@@ -27,7 +27,7 @@ public class StringOps {
 	    // System.out.print(allIndexOf("Hello world",'l'));
 		//System.out.print(voweResult);
 		
-		System.out.println(camelCase("One two tHRee world"));
+		System.out.println(camelCase("Hello World"));
     }
 
     public static String capVowelsLowRest (String string) {
