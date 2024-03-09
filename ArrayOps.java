@@ -2,6 +2,9 @@ public class ArrayOps {
     public static void main(String[] args) {
 		boolean result = containsTheSameElements(new int[] {1, 2, 1, 1, 2}, new int[] {2, 1});
 		System.out.println(result);
+
+		int r = secondMaxValue(new int[] {-202, 48, 13, 7, 8});
+		System.out.println(r);
     }
     
     public static int findMissingInt (int [] array) {
@@ -64,5 +67,4 @@ public class ArrayOps {
 		}
 		return inputArr; // supposed to work but there may be a problem
 	}
-
 }
