@@ -29,26 +29,23 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
-		String ans = "";
+		String newString = "";
+		
 		for (int i = 0; i < string.length(); i++) {
 			char ch = string.charAt(i);
-			if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'){
-				if (ch >= 'A' && ch <= 'Z') { // if uppercase
-					ans += ch;
-				} else { // if lowercase
-					ch = (char) (ch - 32); // returns uppers case vow	els
-					ans += ch;
-				}
-			} else {
-				if ((ch >= 'A') && (ch <= 'Z')){
-					ch = (char) (ch + 32); // returns lower case
-					ans += ch;
-				} else {
-					ans += ch;
-				}
+
+			// lowerCase everything
+			if (ch >= 'A' && ch <= 'Z') {
+				ch = (char)(ch + 32);
 			}
-		}	
-		return ans;
+
+			// upperCase only vowels
+			if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+				ch = (char)(ch - 32);
+			}
+			newString += ch;
+		}
+		return newString;
 	}
 
 
