@@ -54,20 +54,29 @@ public class ArrayOps {
 	}
 
     public static boolean isSorted(int [] array) {
-		// check NOT sort bottom-up
-		for (int i = 0; i < array.length - 1; i++) {
-			if (array[i] > array[i + 1]) {
-				return false;
+		if (array.length == 1) {
+			return true;
+		}
+
+		if (array[0] < array[array.length - 1]) {
+			// check NOT sort bottom-up
+			for (int i = 0; i < array.length - 1; i++) {
+				if (array[i] > array[i + 1]) {
+					return false;
+				}
+			}
+		} else {
+			// check NOT sort up-bottom
+			for (int i = 0; i < array.length - 1; i++) {
+				if (array[i] < array[i + 1]) {
+					return false;
+				}
 			}
 		}
 
-		// check NOT sort up-bottom
-		for (int i = 0; i < array.length - 1; i++) {
-			if (array[i] < array[i + 1]) {
-				return false;
-			}
-		}
+		
 
+		
 		return true;
     }
 				

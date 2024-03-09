@@ -36,7 +36,7 @@ public class StringOps {
 				if (ch >= 'A' && ch <= 'Z') { // if uppercase
 					ans += ch;
 				} else { // if lowercase
-					ch = (char) (ch - 32); // returns uppers case vowels
+					ch = (char) (ch - 32); // returns uppers case vow	els
 					ans += ch;
 				}
 			} else {
