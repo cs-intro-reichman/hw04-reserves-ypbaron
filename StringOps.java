@@ -24,8 +24,10 @@ public class StringOps {
     public static void main(String[] args) {
 		// String s = args[0];
 		// String s = "vowels are fun";
-	    System.out.print(allIndexOf("Hello world",'l'));
-		//System.out.print(voweResult);   
+	    // System.out.print(allIndexOf("Hello world",'l'));
+		//System.out.print(voweResult);
+		
+		System.out.println(capVowelsLowRest("One two tHRee world"));
     }
 
     public static String capVowelsLowRest (String string) {
