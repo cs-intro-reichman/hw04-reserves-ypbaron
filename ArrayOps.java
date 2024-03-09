@@ -3,7 +3,7 @@ public class ArrayOps {
 		// boolean result = containsTheSameElements(new int[] {2,2,3,7,8,3,2}, new int[] {8,2,7,7,3});
 		// System.out.println(result);
 
-		System.out.print(isSorted(new int[] {1,-2,3,4}));
+		System.out.print(isSorted(new int[] {1,-2,3}));
     }
     
     public static int findMissingInt (int [] array) {
@@ -53,18 +53,9 @@ public class ArrayOps {
 		return true;
 	}
 
-	public static boolean isIncluded(int [] array, int element) {
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == element) {
-				return true;
-			}
-		}
-		return false;
-	}
-
     public static boolean isSorted(int [] array) {
 		for (int i = 0; i < array.length - 1; i++) {
-			if (array[i] < array[i + 1]) {
+			if (array[i] > array[i + 1]) {
 				return false;
 			}
 		}
