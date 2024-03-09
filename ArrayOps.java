@@ -1,7 +1,9 @@
 public class ArrayOps {
     public static void main(String[] args) {
-		boolean result = containsTheSameElements(new int[] {2,2,3,7,8,3,2}, new int[] {8,2,7,7,3});
-		System.out.println(result);
+		// boolean result = containsTheSameElements(new int[] {2,2,3,7,8,3,2}, new int[] {8,2,7,7,3});
+		// System.out.println(result);
+
+		System.out.print(isSorted(new int[] {1,-2,3,4}));
     }
     
     public static int findMissingInt (int [] array) {
@@ -61,13 +63,12 @@ public class ArrayOps {
 	}
 
     public static boolean isSorted(int [] array) {
-		int[] sortedArr = sortArr(array);
-		for(int i = 0; i < array.length ; i++){
-			if (sortedArr[i] != array[i]){
+		for (int i = 0; i < array.length - 1; i++) {
+			if (array[i] < array[i + 1]) {
 				return false;
-			}	
+			}
 		}
-        return true;
+		return true;
     }
 				
 	public static int[] sortArr(int[] inputArr) {
