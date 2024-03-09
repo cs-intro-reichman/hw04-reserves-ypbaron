@@ -27,7 +27,7 @@ public class StringOps {
 	    // System.out.print(allIndexOf("Hello world",'l'));
 		//System.out.print(voweResult);
 		
-		System.out.println(capVowelsLowRest("One two tHReE world"));
+		System.out.println(camelCase("One two tHRee world"));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -52,35 +52,39 @@ public class StringOps {
 
 
     public static String camelCase (String string) {
-		boolean uppercaseTrigger = false;
-		String newCamelString = "";
-
+		String newString = "";
 		for (int i = 0; i < string.length(); i++) {
 			char ch = string.charAt(i);
 
-			if (ch == ' ') {
-				if (newCamelString.length() > 0) { // if new word started
-					uppercaseTrigger = true;
-				}
-			} else {
-				if (uppercaseTrigger == true) {
-					uppercaseTrigger = false;
-					
-					if (ch >= 'a' && ch <= 'z') { // if lowercase
-						newCamelString += (char) (ch - 32); // convert to uppercase
-					} else {
-						newCamelString += ch;
-					}
-				} else {
-					if (ch >= 'A' && ch <= 'Z') { // if uppercase
-						newCamelString += (char) (ch + 32); // convert to lowercase
-					} else {
-						newCamelString += ch;
-					}
-				}
+			// replace all to lowerCase
+			if (ch >= 'A' && ch <= 'Z') {
+				ch = (char)(ch + 32);
+			}
+
+			// replace all first word charcter to upperCase
+			if (i > 0 && string.charAt(i - 1) == ' ' && ch != ' ') {
+				ch = (char)(ch - 32);
+			}
+			newString += ch;
+		}
+
+		// remove all spaces
+		String newString2 = "";
+		for (int i = 0; i < newString.length(); i++) {
+			char ch = newString.charAt(i);
+			
+			if (ch != ' ') {
+				newString2 += ch;
 			}
 		}
-		return newCamelString;
+
+		if (newString2.charAt(0) >= 'A' && newString2.charAt(0) <= 'Z') {
+			// lowerCase first word letter
+			char c[] = newString2.toCharArray();
+			c[0] += 32;
+			return new String(c);
+		}
+		return newString2;
 	}
 
 
